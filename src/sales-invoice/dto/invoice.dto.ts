@@ -1,0 +1,22 @@
+export interface invoiceList {
+    invoice_type:string,
+      invoice_no:string,
+      date:string,
+      sold_by:string,
+      bill_to:string,
+      mobile_no:string,
+      client_name:string,
+      address:string,
+      place_of_supply:string,
+      client_gst:string,
+      type:string,
+      delivery_terms:string,
+      remarks:string,
+      item_name:string,
+      uom:string,
+      quantity:string,
+      sale_price:string,
+      discount:string,
+      amount:string,
+     
+}
