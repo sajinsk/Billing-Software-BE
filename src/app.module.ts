@@ -6,6 +6,7 @@ import { SalesInvoiceController } from './sales-invoice/sales-invoice.controller
 import { SalesInvoiceModule } from './sales-invoice/sales-invoice.module';
 import { SalesInvoiceService } from './sales-invoice/sales-invoice.service';
 import { salesInvoice } from './sales-invoice/entities/sales-invoice.entity';
+import { customerList } from './sales-invoice/entities/customer-list.entity';
 
 
 @Module({
@@ -18,7 +19,7 @@ import { salesInvoice } from './sales-invoice/entities/sales-invoice.entity';
     "database": "postgres",
    "synchronize": true,
    "autoLoadEntities": true
-}),TypeOrmModule.forFeature([salesInvoice]), SalesInvoiceModule,
+}),TypeOrmModule.forFeature([salesInvoice,customerList]), SalesInvoiceModule,
 ],
   controllers: [AppController, SalesInvoiceController],
   providers: [AppService,SalesInvoiceService],

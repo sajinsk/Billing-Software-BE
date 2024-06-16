@@ -110,4 +110,26 @@ getSalesInvoiceItem() {
     }
   }
 
+
+
+  // customer save 
+
+
+  
+@Post('customer-save')
+async customerSave(@Body() body, @Res() res, @Req() req) {
+const reqdata: any = body
+
+const check = await this.si.customerSave(reqdata)
+ if (check) {
+      return res.send({
+        status: true,
+        data: check,
+        msg:'Customer Create SuccessFully'
+      });
+    } else {
+      return res.status(400).send({ status: false, msg: 'invalid request' });
+    }
+}
+
 }

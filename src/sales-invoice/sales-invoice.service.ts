@@ -3,6 +3,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Connection, Repository } from 'typeorm';
 import { salesInvoice } from './entities/sales-invoice.entity';
 import { invoiceList } from './dto/invoice.dto';
+import { customerList } from './entities/customer-list.entity';
+import { customerLists } from './dto/customer.dto';
 
 
 @Injectable()
@@ -10,7 +12,8 @@ export class SalesInvoiceService {
 
     constructor(
         private readonly cn: Connection,
-        @InjectRepository(salesInvoice) private salesInvoiceRepository:Repository<salesInvoice>,    
+        @InjectRepository(salesInvoice) private salesInvoiceRepository:Repository<salesInvoice>,  
+        @InjectRepository(customerList) private customerListRepository:Repository<customerList>,   
     ){}
 
 
@@ -109,5 +112,18 @@ export class SalesInvoiceService {
 
        return this.salesInvoiceRepository.save(user);
     }
+
+
+
+
+
+    // customer Save 
+
+
+    async customerSave(body){
+      
+     const insert = await this.customerListRepository.save(body);
+    return insert;
+  }
     
 }
